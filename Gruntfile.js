@@ -60,7 +60,18 @@ module.exports = function(grunt) {
     mochaTest: {
       test: {
         src: ['test/unit/**/*.js']
+        // options: {
+        //   reporter: 'spec',
+        //   require: 'test/blanket'
+        // }
       },
+      // coverage: {
+      //   src: ['test/unit/**/*.js'],
+      //   options: {
+      //     reporter: 'instanbul',
+      //     captureFile: 'mocha-cov.html'
+      //   }
+      // },
       options: {
         timeout: 30000
       }
