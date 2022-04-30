@@ -142,13 +142,14 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine-ajax', 'jasmine', 'sinon'],
+    frameworks: ['jasmine-ajax', 'jasmine', 'sinon', 'browserify'],
 
 
     // list of files / patterns to load in the browser
     files: [
       'test/specs/__helpers.js',
-      'test/specs/**/*.spec.js'
+      'test/specs/**/*.spec.js',
+      'lib/**/*.js'
     ],
 
 
@@ -160,7 +161,8 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'test/specs/__helpers.js': ['webpack', 'sourcemap'],
-      'test/specs/**/*.spec.js': ['webpack', 'sourcemap']
+      'test/specs/**/*.spec.js': ['webpack', 'sourcemap'],
+      'lib/**/*.js': ['webpack', 'coverage']
     },
 
 
@@ -169,7 +171,7 @@ module.exports = function(config) {
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
     // Disable code coverage, as it's breaking CI:
     // reporters: ['dots', 'coverage', 'saucelabs'],
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
 
     // web server port
